@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="stylesheets/style.css">
+
+<div class="jumbotron">
+    <div class="container">
+
+        <div class="tree">
+            <ul>
+                {{#each allUsersData}}
+                <li>
+                    <span>
+                        <a class="collapsed" id="user-href-{{this.username}}" style="color:#495057; text-decoration:none;" data-toggle="collapse" href="#user-{{this.username}}"
+                            aria-expanded="false" aria-controls="{{this.username}}"><i class="collapsed"><i class="fa fa-code-branch"></i></i>
+                            <i class="expanded"><i class="fa fa-code-branch"></i></i> {{this.name}} (
+                            {{this.public_repos}}
+                            Repositories )</a>
+                    </span>
+                    <div id="user-{{this.username}}" class="collapse">
+                        <ul>
+                            <li><span><i class="fa fa-spinner fa-spin"></i><a href="javascript:void(0)"> Loading {{this.username}} repositories...</a></span></li>
+                        </ul>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    window.__users__ = {{{ usersData }}};
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+<script src="js/main.js"></script>
