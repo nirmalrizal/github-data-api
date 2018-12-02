@@ -84,3 +84,7 @@
   height: 100%;
   margin-bottom: 0px;
 }
+
+.no-hover-effect span:hover {
+  background: #e9ecef !important;
+}

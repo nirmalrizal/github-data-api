@@ -75,14 +75,16 @@ const provideReposContents = async (fullName, extraParam) => {
           }
         }
         if (content.type === "dir") {
-          const child = await provideReposContents(fullName, content.name);
-          finalData.push({
-            name: content.name,
-            path: content.path,
-            type: "dir",
-            child: child,
-            sha: content.sha
-          });
+          const child = await provideReposContents(fullName, content.path);
+          if (child && child.length !== 0) {
+            finalData.push({
+              name: content.name,
+              path: content.path,
+              type: "dir",
+              child: child,
+              sha: content.sha
+            });
+          }
         }
       }
     }

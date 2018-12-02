@@ -111,17 +111,20 @@ function populateRepoContents(populateSel, contents) {
           ${content.name}
           </a>
         </span>
+        <ul>
+          <div id="${newPopSel}" class="collapse">
           ${
             content.child.length === 0
-              ? ""
-              : `<ul>
-                <div id="${newPopSel}" class="collapse">
-                  ${populateRepoContents(newPopSel, content.child)}
-                </div>
-              </ul>`
+              ? `<li class="no-hover-effect"><span><i class="fa fa-info-circle"></i> No data available</span></li>`
+              : `${populateRepoContents(newPopSel, content.child)}`
           }
+          </div>
+        </ul>
       </li>`;
     }
+  }
+  if (repoContentHtml === "") {
+    repoContentHtml = `<li class="no-hover-effect"><span><i class="fa fa-info-circle"></i> No data available</span></li>`;
   }
   return repoContentHtml;
 }
