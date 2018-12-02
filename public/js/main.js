@@ -87,7 +87,7 @@ function populateRepoContents(populateSel, contents) {
           <a href="${content.url}" target="_blank" rel="noreferrer">
             ${content.name}
           </a>
-          <a class="float-right btn btn-sm btn-success copy-link"
+          <a class="float-right btn btn-sm btn-secondary copy-link"
           data-placement="top"
           title="Copied"
           data-clipboard-text="${csvApiUrl}"><i class="fa fa-link"></i> Copy API link</a>
